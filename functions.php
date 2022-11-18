@@ -33,3 +33,45 @@ function woocommerce_add_to_cart_button_text_archives() {
     return __( 'Add to Sample Bag', 'woocommerce' );
 
 }
+
+
+
+// Woocommerce checkout field order changed
+
+
+add_filter("woocommerce_checkout_fields", "custom_override_checkout_fields", 1);
+
+function custom_override_checkout_fields($fields) {
+
+    $fields['billing']['billing_first_name']['priority'] = 1;
+    $fields['billing']['billing_last_name']['priority'] = 2;
+    $fields['billing']['billing_email']['priority'] = 3;
+    $fields['billing']['billing_phone']['priority'] = 4;
+    $fields['billing']['billing_business_name']['priority'] = 5;
+    $fields['billing']['billing_business_address']['priority'] = 6;
+    $fields['billing']['billing_job_title']['priority'] = 7;
+    $fields['billing']['billing_project_name']['priority'] = 8;
+    $fields['billing']['billing_about_us']['priority'] = 9;
+
+    // First Name & Last Name
+
+    $fields['billing']['billing_first_name']['class'][0] = 'form-row-first';
+    $fields['billing']['billing_last_name']['class'][0] = 'form-row-last';
+
+    // Business Name and Number
+
+    $fields['billing']['billing_business_name']['class'][0] = 'form-row-first';
+    $fields['billing']['billing_business_address']['class'][0] = 'form-row-last';
+
+    return $fields;
+}
+
+add_filter( 'woocommerce_default_address_fields', 'custom_override_default_locale_fields' );
+
+// function custom_override_default_locale_fields( $fields ) {
+
+//     $fields['state']['priority'] = 5;
+//     $fields['address_1']['priority'] = 6;
+//     $fields['address_2']['priority'] = 7;
+//     return $fields;
+// }
