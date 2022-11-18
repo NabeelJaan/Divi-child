@@ -1,0 +1,33 @@
+/*
+ Theme Name:     Divi Child Theme
+ Theme URI:      
+ Description:    Divi Child Theme
+ Author:         Muhammad Nabeel
+ Author URI:     https://nabeel.thetimesofpakistan.pk/
+ Template:       Divi
+ Version:        1.0.0
+*/
+ 
+/* =Theme customization starts here
+------------------------------------------------------- */
+
+
+.divi-life-cta-menu a {
+    background-color: #D8A31C;
+    padding: 8px 20px !important;
+       font-weight: 400;
+    color: #fff !important;
+    text-align: center;
+  }
+  .custom-register a {
+      background-color: #676561;
+    padding: 8px 20px !important;
+       font-weight: 400;
+    color: #fff !important;
+    text-align: center;
+  }
+  .custom-nav-link a{
+      font-size: 18px;
+      font-weight: 400;
+      margin: 0 10px;
+  } 
