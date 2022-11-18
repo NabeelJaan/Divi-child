@@ -68,10 +68,26 @@ function custom_override_checkout_fields($fields) {
 
 add_filter( 'woocommerce_default_address_fields', 'custom_override_default_locale_fields' );
 
-// function custom_override_default_locale_fields( $fields ) {
 
-//     $fields['state']['priority'] = 5;
-//     $fields['address_1']['priority'] = 6;
-//     $fields['address_2']['priority'] = 7;
-//     return $fields;
-// }
+
+// Adding placeholder
+
+
+add_filter( 'woocommerce_checkout_fields' , 'override_billing_checkout_fields', 20, 1 );
+
+
+function override_billing_checkout_fields( $fields ) {
+
+    $fields['billing']['billing_first_name']['placeholder'] = 'First Name';
+
+    $fields['billing']['billing_last_name']['placeholder'] = 'Last Name';
+    
+    $fields['billing']['billing_email']['placeholder'] = 'Email';
+
+    $fields['billing']['billing_business_name']['placeholder'] = 'Business Name';
+
+    $fields['billing']['billing_business_address']['placeholder'] = 'Business Address';
+
+    return $fields;
+
+}
