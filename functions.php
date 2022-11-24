@@ -233,34 +233,3 @@ function about_custom_checkout_field_display_admin_order_meta($order){
 }
 
 
-
-
-
-
-
-// add_filter( 'woocommerce_checkout_fields' , 'override_billing_checkout_fields', 20, 1 );
-
-
-// function override_billing_checkout_fields( $fields ) {
-
-//     $fields['billing']['billing_first_name']['placeholder'] = 'First Name';
-
-//     $fields['billing']['billing_last_name']['placeholder'] = 'Last Name';
-    
-//     $fields['billing']['billing_email']['placeholder'] = 'Email';
-
-//     $fields['billing']['billing_phone']['placeholder'] = 'Phone Number';
-
-//     $fields['billing']['billing_business_name']['placeholder'] = 'Business Name';
-
-//     $fields['billing']['billing_business_address']['placeholder'] = 'Business Address';
-
-//     $fields['billing']['billing_job_title']['placeholder'] = 'Job Title';
-
-//     $fields['billing']['billing_project_name']['placeholder'] = 'Project Name';
-    
-//     $fields['billing']['billing_about_us']['placeholder'] = 'How to did you hear about us?';
-
-//     return $fields;
-
-// }
