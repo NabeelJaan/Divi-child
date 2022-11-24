@@ -52,7 +52,6 @@ function woocommerce_add_to_cart_button_text_archives() {
 
 */ 
 
-
 add_filter( 'woocommerce_checkout_fields' , 'nabeel_remove_fields' );
 
 function nabeel_remove_fields( $fields ) {
@@ -63,7 +62,9 @@ function nabeel_remove_fields( $fields ) {
 
     unset( $fields['billing']['billing_state'] );
 
-    unset( $fields['billing']['billing_address_2'] );
+    unset( $fields['billing']['billing_address_1'] );
+
+    // unset( $fields['billing']['billing_address_2'] );
 
     unset( $fields['billing']['billing_postcode'] );
 
@@ -82,7 +83,6 @@ function nabeel_remove_fields( $fields ) {
       Adding custom field = Business Name
     ==========================================
 */
-
 
 add_filter( 'woocommerce_checkout_fields' , 'business_name_custom_override_checkout_fields' );
 
