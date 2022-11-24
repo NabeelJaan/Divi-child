@@ -62,9 +62,9 @@ function nabeel_remove_fields( $fields ) {
 
     unset( $fields['billing']['billing_state'] );
 
-    unset( $fields['billing']['billing_address_1'] );
+    // unset( $fields['billing']['billing_address_1'] );
 
-    // unset( $fields['billing']['billing_address_2'] );
+    unset( $fields['billing']['billing_address_2'] );
 
     unset( $fields['billing']['billing_postcode'] );
 
@@ -103,16 +103,49 @@ function business_name_custom_override_checkout_fields( $fields ) {
     return $fields;
 }
 
-/**
- * Display field value on the order edit page
- */
+// Display field value on the order edit page
  
-add_action( 'woocommerce_admin_order_data_after_shipping_address', 'business_name_custom_checkout_field_display_admin_order_meta', 10, 1 );
+add_action( 'woocommerce_admin_order_data_after_shipping_address', 'business_n_custom_checkout_field_display_admin_order_meta', 10, 1 );
 
-function my_custom_checkout_field_display_admin_order_meta($order){
-    echo '<p><strong>'.__('Bussiness Name From Checkout Form').':</strong> ' . get_post_meta( $order->get_id(), '_billing_business_name', true ) . '</p>';
+function business_n_custom_checkout_field_display_admin_order_meta($order){
+
+    echo '<p><strong>'.__('Business Name From Checkout Form').':</strong> ' . get_post_meta( $order->get_id(), '_billing_business_name', true ) . '</p>';
 }
 
+
+/*
+    =============================================
+      Adding a custom field == Business Address
+    =============================================
+
+*/ 
+
+
+// add_filter( 'woocommerce_checkout_fields', 'business_address_custom_override_checkout_fields' );
+
+// function business_address_custom_override_checkout_fields( $fields ) {
+
+//     $fields['billing']['billing_business_address'] = array(
+
+//         'label'       => __('Business Address', 'woocommerce'),
+//         'placeholder' => _x('Business Address', 'placeholder', 'woocommerce'),
+//         'required'    => true,
+//         'class'       => array('form-row-wide'),
+//         'clear'       => true
+//     );
+
+//     return $fields;
+
+// }
+
+// Display field value
+
+// add_action( 'woocommerce_admin_order_data_after_shipping_address', 'businessAdd_custom_checkout_field_display_admin_order_memta', 20, 1 );
+
+// function businessAdd_custom_checkout_field_display_admin_order_memta( $order ){
+
+//     echo '<p><strong>'.__('Business Address From Checkout Form').':</strong>'. get_post_meta( $order->get_id(), '_billingn_business_address', true ) . '</p>';
+// }
 
 
 
@@ -146,7 +179,7 @@ function job_title_custom_override_checkout_fields( $fields ) {
  * Display field value on the order edit page
  */
  
-add_action( 'woocommerce_admin_order_data_after_shipping_address', 'job_custom_checkout_field_display_admin_order_meta', 20, 2 );
+add_action( 'woocommerce_admin_order_data_after_shipping_address', 'job_custom_checkout_field_display_admin_order_meta', 30, 1 );
 
 function job_custom_checkout_field_display_admin_order_meta($order){
 
@@ -185,7 +218,7 @@ function project_title_custom_override_checkout_fields( $fields ) {
  * Display field value on the order edit page
  */
  
-add_action( 'woocommerce_admin_order_data_after_shipping_address', 'project_custom_checkout_field_display_admin_order_meta', 30, 1 );
+add_action( 'woocommerce_admin_order_data_after_shipping_address', 'project_custom_checkout_field_display_admin_order_meta', 40, 1 );
 
 function project_custom_checkout_field_display_admin_order_meta($order){
 
@@ -224,7 +257,7 @@ function about_title_custom_override_checkout_fields( $fields ) {
  * Display field value on the order edit page
  */
  
-add_action( 'woocommerce_admin_order_data_after_shipping_address', 'about_custom_checkout_field_display_admin_order_meta', 30, 1 );
+add_action( 'woocommerce_admin_order_data_after_shipping_address', 'about_custom_checkout_field_display_admin_order_meta', 50, 1 );
 
 function about_custom_checkout_field_display_admin_order_meta($order){
 
