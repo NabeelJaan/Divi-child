@@ -11,7 +11,12 @@ function enqueue_parent_styles() {
 
 
 
-// Change add to cart text on single product page
+/*
+    ==================================================
+      Change add to cart text on single product page
+    ==================================================
+
+*/ 
 
 add_filter( 'woocommerce_product_single_add_to_cart_text', 'woocommerce_add_to_cart_button_text_single' );
 
@@ -23,7 +28,12 @@ function woocommerce_add_to_cart_button_text_single() {
 
 
 
-// Change add to cart text on product archives page
+/*
+    ==================================================
+      Change add to cart text on product archives page
+    ==================================================
+
+*/ 
 
 add_filter( 'woocommerce_product_add_to_cart_text', 'woocommerce_add_to_cart_button_text_archives' );
 
@@ -34,7 +44,13 @@ function woocommerce_add_to_cart_button_text_archives() {
 }
 
 
-/**/
+
+/*
+    ================================
+      Removing Unncessory fields
+    ================================
+
+*/ 
 
 
 add_filter( 'woocommerce_checkout_fields' , 'nabeel_remove_fields' );
@@ -61,6 +77,68 @@ function nabeel_remove_fields( $fields ) {
 
 
 
+/*
+    ==========================================
+      Adding custom field
+    ==========================================
+*/
+
+
+add_filter( 'woocommerce_checkout_fields' , 'custom_override_checkout_fields' );
+
+// Our hooked in function - $fields is passed via the filter!
+function custom_override_checkout_fields( $fields ) {
+     $fields['shipping']['shipping_phone'] = array(
+        'label'     => __('Phone', 'woocommerce'),
+    'placeholder'   => _x('Phone', 'placeholder', 'woocommerce'),
+    'required'  => false,
+    'class'     => array('form-row-wide'),
+    'clear'     => true
+     );
+
+     return $fields;
+}
+
+/**
+ * Display field value on the order edit page
+ */
+ 
+add_action( 'woocommerce_admin_order_data_after_shipping_address', 'my_custom_checkout_field_display_admin_order_meta', 10, 1 );
+
+function my_custom_checkout_field_display_admin_order_meta($order){
+    echo '<p><strong>'.__('Phone From Checkout Form').':</strong> ' . get_post_meta( $order->get_id(), '_shipping_phone', true ) . '</p>';
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -76,7 +154,7 @@ function nabeel_remove_fields( $fields ) {
 //     $fields['billing']['billing_email']['priority'] = 3;
 //     $fields['billing']['billing_phone']['priority'] = 4;
 //     $fields['billing']['billing_business_name']['priority'] = 5;
-//     $fields['billing']['billing_business_address']['priority'] = 6;
+//     $fields['billing']['billing_address_1']['priority'] = 5;
 //     $fields['billing']['billing_job_title']['priority'] = 7;
 //     $fields['billing']['billing_project_name']['priority'] = 8;
 //     $fields['billing']['billing_about_us']['priority'] = 9;
