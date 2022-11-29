@@ -1,6 +1,6 @@
 /*
  Theme Name:     Divi Child Theme
- Theme URI:      
+ Theme URI:      https://summitluxuryliving.com/
  Description:    Divi Child Theme
  Author:         Muhammad Nabeel
  Author URI:     https://nabeel.thetimesofpakistan.pk/
@@ -8,8 +8,14 @@
  Version:        1.0.0
 */
  
-/* =Theme customization starts here
-------------------------------------------------------- */
+
+
+
+/* 
+  ==================================
+    Theme customization starts here
+  ===================================
+*/
 
 
 .divi-life-cta-menu a {
@@ -31,3 +37,10 @@
       font-weight: 400;
       margin: 0 10px;
   } 
+
+
+/* Woo commerce */
+
+#billing_country_field {
+  display: none !important;
+}

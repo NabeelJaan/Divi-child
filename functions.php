@@ -46,6 +46,24 @@ function woocommerce_add_to_cart_button_text_archives() {
 
 
 /*
+    ==========================
+      Order confirmation text
+    ==========================
+*/
+
+
+add_filter('woocommerce_thankyou_order_received_text', 'woo_change_order_received_text', 10, 2 );
+
+function woo_change_order_received_text( $str, $order ) {
+    $new_str = $str . 'Your sample order has been submitted. If we have any questions,
+                        a representative will reach out shortly.
+                        You can also contact us toll-free at 1-877-496-3566 or info@summit-flooring.com';
+    return $new_str;
+}
+
+
+
+/*
     ================================
       Removing Unncessory fields
     ================================
@@ -58,11 +76,11 @@ function nabeel_remove_fields( $fields ) {
 
     unset( $fields['billing']['billing_company'] );
 
-    unset( $fields['billing']['billing_country'] );
+    // unset( $fields['billing']['billing_country'] );
 
     unset( $fields['billing']['billing_state'] );
 
-    // unset( $fields['billing']['billing_address_1'] );
+    unset( $fields['billing']['billing_address_1'] );
 
     unset( $fields['billing']['billing_address_2'] );
 
@@ -121,31 +139,31 @@ function business_n_custom_checkout_field_display_admin_order_meta($order){
 */ 
 
 
-// add_filter( 'woocommerce_checkout_fields', 'business_address_custom_override_checkout_fields' );
+add_filter( 'woocommerce_checkout_fields', 'business_address_custom_override_checkout_fields' );
 
-// function business_address_custom_override_checkout_fields( $fields ) {
+function business_address_custom_override_checkout_fields( $fields ) {
 
-//     $fields['billing']['billing_business_address'] = array(
+    $fields['billing']['billing_business_address'] = array(
 
-//         'label'       => __('Business Address', 'woocommerce'),
-//         'placeholder' => _x('Business Address', 'placeholder', 'woocommerce'),
-//         'required'    => true,
-//         'class'       => array('form-row-wide'),
-//         'clear'       => true
-//     );
+        'label'       => __('Business Address', 'woocommerce'),
+        'placeholder' => _x('Business Address', 'placeholder', 'woocommerce'),
+        'required'    => true,
+        'class'       => array('form-row-wide'),
+        'clear'       => true
+    );
 
-//     return $fields;
+    return $fields;
 
-// }
+}
 
 // Display field value
 
-// add_action( 'woocommerce_admin_order_data_after_shipping_address', 'businessAdd_custom_checkout_field_display_admin_order_memta', 20, 1 );
+add_action( 'woocommerce_admin_order_data_after_shipping_address', 'businessAdd_custom_checkout_field_display_admin_order_memta', 20, 1 );
 
-// function businessAdd_custom_checkout_field_display_admin_order_memta( $order ){
+function businessAdd_custom_checkout_field_display_admin_order_memta( $order ){
 
-//     echo '<p><strong>'.__('Business Address From Checkout Form').':</strong>'. get_post_meta( $order->get_id(), '_billingn_business_address', true ) . '</p>';
-// }
+    echo '<p><strong>'.__('Business Address From Checkout Form').':</strong>'. get_post_meta( $order->get_id(), '_billingn_business_address', true ) . '</p>';
+}
 
 
 
