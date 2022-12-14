@@ -58,3 +58,14 @@
   left: -20px;
   position: absolute;
 }
+
+/* Remove the Total column from order details page */
+
+.woocommerce-table--order-details > tfoot tr:nth-child(1),
+.woocommerce-table--order-details > tfoot tr:nth-child(3),
+.order-total,
+.cart-subtotal,
+.woocommerce-cart-form .product-price,
+.woocommerce-cart-form .product-subtotal {
+  display: none !important;
+}
