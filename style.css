@@ -50,12 +50,11 @@
 }
 
 .et-cart-info span:before {
-	content: url('/wp-content/uploads/2022/11/shopping-bag-solid.svg') !important;
-  width: 12px;
-  height: auto;
+  content: url('https://summitluxuryliving.com/wp-content/uploads/2022/12/bag.png') !important;
+  width: 12px !important;
+  height: 15px !important;
   display: block;
   top: 1px;
   left: -20px;
   position: absolute;
-	font-family: 'FontAwesome' !important;
 }

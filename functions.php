@@ -55,9 +55,7 @@ function woocommerce_add_to_cart_button_text_archives() {
 add_filter('woocommerce_thankyou_order_received_text', 'woo_change_order_received_text', 10, 2 );
 
 function woo_change_order_received_text( $str, $order ) {
-    $new_str = $str . 'Your sample order has been submitted. If we have any questions,
-                        a representative will reach out shortly.
-                        You can also contact us toll-free at 1-877-496-3566 or info@summit-flooring.com';
+    $new_str = $str . 'Your sample order has been submitted. If we have any questions, a representative will reach out shortly. You can also contact us toll-free at 1-877-496-3566 or info@summit-flooring.com';
     return $new_str;
 }
 
