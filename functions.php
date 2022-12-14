@@ -303,3 +303,18 @@ function wc_billing_field_strings( $translated_text, $text, $domain ) {
 
 
 add_filter( 'gettext', 'wc_billing_field_strings', 20, 3 );
+
+
+/*
+    ===============================================
+      Change the 'cart total' heading to 'Summary'
+    ===============================================
+*/
+
+function change_cart_totals( $translated ) {
+    $translated = str_ireplace('Cart Totals', 'Summary', $translated);
+    return $translated;
+}
+
+
+add_filter('gettext', 'change_cart_totals' );
