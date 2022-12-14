@@ -269,9 +269,12 @@ function about_title_custom_override_checkout_fields( $fields ) {
     return $fields;
 }
 
-/**
- * Display field value on the order edit page
- */
+/*
+    ==================================================
+      Display field value on the order edit page
+    ==================================================
+
+*/
  
 add_action( 'woocommerce_admin_order_data_after_shipping_address', 'about_custom_checkout_field_display_admin_order_meta', 50, 1 );
 
@@ -281,4 +284,22 @@ function about_custom_checkout_field_display_admin_order_meta($order){
 
 }
 
+/*
+    ======================================================================
+      Change the 'Billing details' checkout label to 'Contact Information'
+    ======================================================================
 
+*/
+
+
+function wc_billing_field_strings( $translated_text, $text, $domain ) {
+    switch ( $translated_text ) {
+    case 'Billing details' :
+    $translated_text = __( 'Client Details', 'woocommerce' );
+    break;
+    }
+    return $translated_text;
+}
+
+
+add_filter( 'gettext', 'wc_billing_field_strings', 20, 3 );
