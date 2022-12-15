@@ -52,12 +52,12 @@ function woocommerce_add_to_cart_button_text_archives() {
 */
 
 
-add_filter('woocommerce_thankyou_order_received_text', 'woo_change_order_received_text', 10, 2 );
+// add_filter('woocommerce_thankyou_order_received_text', 'woo_change_order_received_text', 10, 2 );
 
-function woo_change_order_received_text( $str, $order ) {
-    $new_str = $str . 'Your sample order has been submitted. If we have any questions, a representative will reach out shortly. You can also contact us toll-free at 1-877-496-3566 or info@summit-flooring.com';
-    return $new_str;
-}
+// function woo_change_order_received_text( $str, $order ) {
+//     $new_str = $str . 'Your sample order has been submitted. If we have any questions, a representative will reach out shortly. You can also contact us toll-free at 1-877-496-3566 or info@summit-flooring.com';
+//     return $new_str;
+// }
 
 
 
@@ -337,3 +337,19 @@ function woocommerce_button_proceed_to_checkout() {
     <?php
 }
    
+
+/*
+    ==============================
+      Custom Thank you Page after
+    ==============================
+*/
+
+add_action('template_redirect', 'woocommerce_redirect_after_purchase');
+
+function woocommerce_redirect_after_purchase() {
+    global $wp;
+    if (is_checkout() && !empty($wp->query_vars['order-received'])) {
+        wp_redirect('https://summitluxuryliving.com/thank-you/');
+        exit;
+    }
+}
