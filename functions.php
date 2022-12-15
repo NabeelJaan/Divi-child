@@ -318,3 +318,22 @@ function change_cart_totals( $translated ) {
 
 
 add_filter('gettext', 'change_cart_totals' );
+
+
+/*
+    ==========================================================
+      Change the 'Proceed to checkouot' to 'Proceed to order'.
+    ==========================================================
+*/
+
+function woocommerce_button_proceed_to_checkout() { 
+    ?>
+
+    <a href="<?php echo esc_url( wc_get_checkout_url() ); ?>" class="checkout-button button alt wc-forward">
+    
+        <?php esc_html_e( 'Proceed to Order', 'woocommerce' ); ?>
+    </a>
+
+    <?php
+}
+   
