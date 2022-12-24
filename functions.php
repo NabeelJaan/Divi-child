@@ -360,10 +360,30 @@ function woocommerce_redirect_after_purchase() {
     =========================
 */ 
 
-function woo_custom_product_add_to_cart_text() {
+add_filter( 'gettext', function( $translated_text ) {
 
-    return __( 'View Sample Bag' , 'woocommerce' );
+    if ( 'View cart' === $translated_text ) {
+        $translated_text = 'View Sample Bag';
+    }
+    return $translated_text;
 
+} );
+
+
+/*
+    =========================
+      Alter update cart text
+    =========================
+*/
+
+
+function change_update_cart_text( $translated, $text, $domain ) {
+
+    if( is_cart() && $translated == 'Update cart' ){
+        $translated = 'Update Bag';
+    }
+    return $translated;
 }
 
-add_filter( 'woocommerce_product_add_to_cart_text' , 'woo_custom_product_add_to_cart_text' );
+
+add_filter( 'gettext', 'change_update_cart_text', 20, 3 );
