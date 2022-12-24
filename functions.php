@@ -353,3 +353,17 @@ function woocommerce_redirect_after_purchase() {
         exit;
     }
 }
+
+/*
+    =========================
+      Change View Cart text
+    =========================
+*/ 
+
+function woo_custom_product_add_to_cart_text() {
+
+    return __( 'View Sample Bag' , 'woocommerce' );
+
+}
+
+add_filter( 'woocommerce_product_add_to_cart_text' , 'woo_custom_product_add_to_cart_text' );
