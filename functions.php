@@ -387,3 +387,48 @@ function change_update_cart_text( $translated, $text, $domain ) {
 
 
 add_filter( 'gettext', 'change_update_cart_text', 20, 3 );
+
+add_action( 'after_setup_theme', 'woocommerce_support' );
+function woocommerce_support() {
+   add_theme_support( 'woocommerce' );
+}                               
+
+
+
+/*
+    ===================================
+      Adding checkbox on checkout form
+    ===================================
+*/
+
+// function cw_custom_checkbox_fields( $checkout ) {
+
+//     echo '<div class="cw_custom_class"><h3>'.__('This is also the shipping address: ').'</h3>';
+
+//     woocommerce_form_field( 'custom_checkbox', array(
+//         'type'          => 'checkbox',
+//         'label'         => __('Shipping Address.'),
+//         'required'  => true,
+//     ), $checkout->get_value( 'custom_checkbox' ));
+
+//     echo '</div>';
+// }
+
+
+// add_action('woocommerce_checkout_process', 'cw_custom_process_checkbox');
+
+// function cw_custom_process_checkbox() {
+//     global $woocommerce;
+
+//     if (!$_POST['custom_checkbox'])
+//         wc_add_notice( __( 'Notification message.' ), 'error' );
+// }
+
+
+// add_action('woocommerce_checkout_update_order_meta', 'cw_checkout_order_meta');
+
+// function cw_checkout_order_meta( $order_id ) {
+//     if ($_POST['custom_checkbox']) update_post_meta( $order_id, 'checkbox name', esc_attr($_POST['custom_checkbox']));
+// }
+
+// add_action('woocommerce_after_order_notes', 'cw_custom_checkbox_fields');

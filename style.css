@@ -69,3 +69,9 @@
 .woocommerce-cart-form .product-subtotal {
   display: none !important;
 }
+
+.woocommerce-shipping-totals p.woocommerce-shipping-destination,
+.woocommerce-shipping-calculator a.shipping-calculator-button,
+.woocommerce-privacy-policy-text > p {
+  display: none !important;
+}
