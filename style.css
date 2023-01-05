@@ -75,3 +75,7 @@
 .woocommerce-privacy-policy-text > p {
   display: none !important;
 }
+#order_review .product-total,
+#order_review .woocommerce-Price-amount span > bdi {
+  opacity: 0;
+} 
